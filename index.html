@@ -3,27 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또 번호 추출기</title>
+    <title>안녕하세요! 반갑습니다</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="light-mode">
-    <div class="container">
+    <div class="main-wrapper">
         <header>
-            <h1>로또 번호 추출기</h1>
-            <button id="theme-toggle" class="btn-secondary">테마 변경</button>
+            <nav>
+                <div class="logo">MyPortfolio</div>
+                <button id="theme-toggle" class="btn-icon"><i class="fas fa-moon"></i></button>
+            </nav>
         </header>
-        
+
         <main>
-            <div id="lotto-container" class="lotto-numbers">
-                <div class="ball placeholder">?</div>
-                <div class="ball placeholder">?</div>
-                <div class="ball placeholder">?</div>
-                <div class="ball placeholder">?</div>
-                <div class="ball placeholder">?</div>
-                <div class="ball placeholder">?</div>
-            </div>
-            <button id="generate-btn" class="btn-primary">번호 생성</button>
+            <!-- Introduction Section -->
+            <section id="about" class="intro-section">
+                <div class="profile-card">
+                    <div class="profile-image">
+                        <img src="https://via.placeholder.com/150" alt="프로필 이미지">
+                    </div>
+                    <div class="profile-info">
+                        <h1>안녕하세요, 개발자 지망생입니다!</h1>
+                        <p class="tagline">배움을 즐기고 성장을 꿈꾸는 개발자입니다.</p>
+                        <p class="description">
+                            현재 다양한 기술을 익히며 웹 개발의 매력에 빠져 있습니다.<br>
+                            사용자에게 즐거움을 줄 수 있는 서비스를 만드는 것이 목표입니다.
+                        </p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-blog"></i></a>
+                            <a href="#"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lotto Generator Section -->
+            <section id="lotto" class="tool-section">
+                <div class="container">
+                    <h2>🎰 행운의 로또 추출기</h2>
+                    <p>오늘의 행운을 시험해보세요!</p>
+                    
+                    <div id="lotto-container" class="lotto-numbers">
+                        <div class="ball placeholder">?</div>
+                        <div class="ball placeholder">?</div>
+                        <div class="ball placeholder">?</div>
+                        <div class="ball placeholder">?</div>
+                        <div class="ball placeholder">?</div>
+                        <div class="ball placeholder">?</div>
+                    </div>
+                    
+                    <button id="generate-btn" class="btn-primary">번호 생성하기</button>
+                </div>
+            </section>
         </main>
+
+        <footer>
+            <p>&copy; 2026 MyPortfolio. All rights reserved.</p>
+        </footer>
     </div>
     <script src="main.js"></script>
 </body>

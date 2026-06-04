@@ -1,92 +1,177 @@
 :root {
-    --bg-color: #ffffff;
-    --text-color: #333333;
-    --container-bg: #f8f9fa;
+    --bg-color: #f0f2f5;
+    --text-color: #1c1e21;
+    --card-bg: #ffffff;
+    --nav-bg: #ffffff;
     --ball-bg: #e9ecef;
     --ball-text: #333333;
-    --primary-btn: #007bff;
-    --primary-btn-hover: #0056b3;
-    --secondary-btn: #6c757d;
-    --secondary-btn-hover: #5a6268;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --primary-btn: #1877f2;
+    --primary-btn-hover: #166fe5;
+    --secondary-btn: #e4e6eb;
+    --secondary-btn-hover: #d8dadf;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.1);
+    --accent: #ff4757;
 }
 
 body.dark-mode {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --container-bg: #1e1e1e;
-    --ball-bg: #333333;
-    --ball-text: #ffffff;
-    --primary-btn: #3700b3;
-    --primary-btn-hover: #6200ee;
-    --secondary-btn: #444444;
-    --secondary-btn-hover: #666666;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    --bg-color: #18191a;
+    --text-color: #e4e6eb;
+    --card-bg: #242526;
+    --nav-bg: #242526;
+    --ball-bg: #3a3b3c;
+    --ball-text: #e4e6eb;
+    --primary-btn: #2d88ff;
+    --primary-btn-hover: #4e9eff;
+    --secondary-btn: #3a3b3c;
+    --secondary-btn-hover: #4e4f50;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: background-color 0.3s, color 0.3s;
 }
 
 body {
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
 }
 
-.container {
-    background-color: var(--container-bg);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: var(--shadow);
-    text-align: center;
-    width: 90%;
-    max-width: 500px;
+.main-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
+/* Header & Nav */
 header {
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
+    background-color: var(--nav-bg);
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
 }
 
-h1 {
+.logo {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--primary-btn);
+}
+
+/* Introduction Section */
+.intro-section {
+    margin-bottom: 40px;
+}
+
+.profile-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    box-shadow: var(--shadow);
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-btn);
+}
+
+.profile-info h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.tagline {
+    font-weight: 600;
+    color: var(--primary-btn);
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: var(--text-color);
     font-size: 1.5rem;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.social-links a:hover {
+    color: var(--primary-btn);
+    transform: translateY(-3px);
+}
+
+/* Lotto Section */
+.tool-section {
+    margin-bottom: 40px;
+}
+
+.container {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.container h2 {
+    margin-bottom: 10px;
+}
+
+.container p {
+    margin-bottom: 30px;
+    opacity: 0.8;
 }
 
 .lotto-numbers {
     display: flex;
     justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
+    gap: 12px;
+    margin-bottom: 30px;
     flex-wrap: wrap;
 }
 
 .ball {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     background-color: var(--ball-bg);
     color: var(--ball-text);
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
-    font-size: 1.2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    transition: transform 0.2s;
+    font-weight: 800;
+    font-size: 1.3rem;
+    box-shadow: inset 0 -4px 0 rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.2s;
 }
 
-.ball:hover {
-    transform: scale(1.1);
+.ball.placeholder {
+    opacity: 0.3;
 }
 
 /* 로또 번호대별 색상 */
@@ -96,32 +181,67 @@ h1 {
 .ball.range-30 { background-color: #aaa; color: #fff; }
 .ball.range-40 { background-color: #b0d840; color: #fff; }
 
-button {
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-weight: bold;
-    transition: opacity 0.2s;
-}
-
+/* Buttons */
 .btn-primary {
     background-color: var(--primary-btn);
     color: white;
-    width: 100%;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 8px;
     font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 100%;
+    max-width: 300px;
 }
 
 .btn-primary:hover {
     background-color: var(--primary-btn-hover);
 }
 
-.btn-secondary {
-    background-color: var(--secondary-btn);
-    color: white;
-    font-size: 0.8rem;
+.btn-primary:active {
+    transform: scale(0.98);
 }
 
-.btn-secondary:hover {
-    background-color: var(--secondary-btn-hover);
+.btn-icon {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.btn-icon:hover {
+    background-color: var(--secondary-btn);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+    
+    .profile-info h1 {
+        font-size: 1.5rem;
+    }
+    
+    .ball {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
 }
