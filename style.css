@@ -290,7 +290,7 @@ body.dark-mode .form-group textarea {
 }
 
 /* Animal Face Test Section */
-.webcam-box {
+.webcam-box, .image-box {
     margin: 0 auto 30px;
     width: 200px;
     height: 200px;
@@ -304,7 +304,10 @@ body.dark-mode .form-group textarea {
     background-color: var(--bg-color);
 }
 
-.webcam-box canvas {
+.webcam-box canvas, .image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
     border-radius: 8px;
 }
 
@@ -330,4 +333,39 @@ body.dark-mode .form-group textarea {
 
 body.dark-mode .prediction-label {
     background-color: #3a3b3c;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-secondary {
+    display: inline-block;
+    background-color: var(--secondary-btn);
+    color: var(--text-color);
+    padding: 15px 40px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    width: 100%;
+    max-width: 300px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-btn-hover);
+}
+
+.error-message {
+    color: var(--accent);
+    background-color: rgba(255, 71, 87, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
 }
