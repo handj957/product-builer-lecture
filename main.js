@@ -80,4 +80,60 @@ document.addEventListener('DOMContentLoaded', () => {
             }, index * 100);
         });
     }
+
+    // 동물상 테스트 기능
+    const animalStartBtn = document.getElementById('start-animal-test');
+    const webcamContainer = document.getElementById('webcam-container');
+    const animalLabelContainer = document.getElementById('label-container');
+    const modelURL = "https://teachablemachine.withgoogle.com/models/6n0H-ae_8/";
+    
+    let animalModel, webcam, maxPredictions;
+
+    animalStartBtn.addEventListener('click', async () => {
+        animalStartBtn.disabled = true;
+        animalStartBtn.textContent = '모델 로딩 중...';
+        
+        try {
+            const modelJsonURL = modelURL + "model.json";
+            const metadataURL = modelURL + "metadata.json";
+
+            animalModel = await tmImage.load(modelJsonURL, metadataURL);
+            maxPredictions = animalModel.getTotalClasses();
+
+            const flip = true;
+            webcam = new tmImage.Webcam(200, 200, flip);
+            await webcam.setup();
+            await webcam.play();
+            window.requestAnimationFrame(animalLoop);
+
+            webcamContainer.appendChild(webcam.canvas);
+            animalLabelContainer.innerHTML = '';
+            for (let i = 0; i < maxPredictions; i++) {
+                const labelDiv = document.createElement("div");
+                labelDiv.className = 'prediction-label';
+                animalLabelContainer.appendChild(labelDiv);
+            }
+            
+            animalStartBtn.style.display = 'none';
+        } catch (error) {
+            console.error(error);
+            animalStartBtn.disabled = false;
+            animalStartBtn.textContent = '테스트 시작하기 (오류 발생)';
+        }
+    });
+
+    async function animalLoop() {
+        webcam.update();
+        await animalPredict();
+        window.requestAnimationFrame(animalLoop);
+    }
+
+    async function animalPredict() {
+        const prediction = await animalModel.predict(webcam.canvas);
+        for (let i = 0; i < maxPredictions; i++) {
+            const classPrediction =
+                prediction[i].className + ": " + (prediction[i].probability * 100).toFixed(0) + "%";
+            animalLabelContainer.childNodes[i].innerHTML = classPrediction;
+        }
+    }
 });

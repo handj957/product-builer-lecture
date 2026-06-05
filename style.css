@@ -288,3 +288,46 @@ body.dark-mode .form-group textarea {
         font-size: 1.1rem;
     }
 }
+
+/* Animal Face Test Section */
+.webcam-box {
+    margin: 0 auto 30px;
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 4px solid var(--primary-btn);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-color);
+}
+
+.webcam-box canvas {
+    border-radius: 8px;
+}
+
+.prediction-labels {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.prediction-label {
+    background-color: var(--secondary-btn);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-align: left;
+    transition: background-color 0.2s;
+}
+
+body.dark-mode .prediction-label {
+    background-color: #3a3b3c;
+}

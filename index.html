@@ -57,6 +57,19 @@
                     <button id="generate-btn" class="btn-primary">번호 생성하기</button>
                 </div>
             </section>
+
+            <!-- Animal Face Test Section -->
+            <section id="animal-test" class="tool-section">
+                <div class="container">
+                    <h2>🐶 인공지능 동물상 테스트</h2>
+                    <p>나와 닮은 동물을 인공지능이 찾아줍니다!</p>
+                    
+                    <div id="webcam-container" class="webcam-box"></div>
+                    <div id="label-container" class="prediction-labels"></div>
+                    
+                    <button id="start-animal-test" class="btn-primary">테스트 시작하기</button>
+                </div>
+            </section>
             <!-- Partnership Form Section -->
             <section id="contact" class="tool-section">
                 <div class="container">
@@ -111,6 +124,8 @@
             <p>&copy; 2026 MyPortfolio. All rights reserved.</p>
         </footer>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
